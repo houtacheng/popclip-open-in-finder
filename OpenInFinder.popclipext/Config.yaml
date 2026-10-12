@@ -1,15 +1,15 @@
 # PopClip Extension Configuration
-identifier: com.sunda.popclip.open-in-finder
-name: 在 Finder 中打開
+identifier: com.houtacheng.popclip.extension.open-in-finder
+name: Open in Finder
 icon: symbol:folder.fill
-description: 選取檔案或資料夾路徑後，直接在 Finder 中開啟該資料夾。
+description: Open the selected directory or reveal file in Finder directly.
 popclipVersion: 4000
-keywords: finder open path folder 目錄 資料夾 路徑
+keywords: finder open path folder directory 目錄 資料夾 路徑
 regex: '(?m)(?:^|(?<=[\s"''`<(\[:=]))["''`<]?(file://\S+|~(?=[\s"''`>)\];,:]|$)|~(/[^"''`\r\n\t]*)?|/[^\s/\*\?\+=\<\>\|][^"''`\r\n\t]*?)["''`>]?(?=$|[\r\n\t"''`>)\];,:])'
 shellScriptFile: open_finder.sh
 options:
   - identifier: terminalApp
-    label: Option 鍵輔助終端機
+    label: Option Key Terminal
     type: multiple
     values:
       - Terminal
@@ -17,4 +17,4 @@ options:
       - Warp
       - Ghostty
     defaultValue: Terminal
-    description: 按住 Option 點選時，改在此終端機應用中開啟該目錄。
+    description: Hold ⌥ Option when clicking to open the folder in this terminal emulator.

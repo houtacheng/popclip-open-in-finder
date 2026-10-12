@@ -1,71 +1,70 @@
-# PopClip Extension: 在 Finder 中打開 (Open in Finder)
+# PopClip Extension: Open in Finder (在 Finder 中打開)
 
-在 macOS 上選取任何資料夾或檔案路徑文字後，透過 PopClip 一鍵直接在 Finder 中開啟該目錄或定位檔案。
+[![PopClip Extension](https://img.shields.io/badge/PopClip-Extension-blue.svg)](https://www.popclip.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/github/v/release/houtacheng/popclip-open-in-finder?color=green)](https://github.com/houtacheng/popclip-open-in-finder/releases)
 
----
+A macOS [PopClip](https://www.popclip.app/) extension to open highlighted folder paths directly in Finder, or reveal files, with a single click.
 
-## ✨ 功能特色
-
-1. **直接進入資料夾**：
-   - 選取資料夾路徑（例如 `/Users/sunda/Documents/POPCLIP/`），點擊按鈕立即在 Finder 中打開該資料夾並置頂顯示。
-2. **檔案自動定位**：
-   - 若選取的是檔案路徑（如 `/Users/sunda/Documents/POPCLIP/README.md`），則會在 Finder 中開啟其所在資料夾並高亮選取該檔案（Reveal in Finder）。
-3. **強大路徑相容性**：
-   - **波浪號家目錄**：支援 `~/Documents`、`~` 等格式，自動展開為使用者家目錄。
-   - **引號包覆**：無論是雙引號 `"/path"`、單引號 `'~/path'`、反引號 `` `path` ``、書名號或中文引號 `“/path”`，均能智慧去除。
-   - **`file://` 協議**：支援瀏覽器或郵件複製的 `file:///Users/...`，並自動處理 URL 百分比編碼（例如 `%20` 空格與中文字元）。
-   - **終端機跳脫空格**：支援 `/Applications/App\ Store.app` 等跳脫空格路徑。
-   - **常見內文標點隔離**：選取路徑時若不小心連帶選取句尾的逗號、句號（如 `見 /Users/sunda/Downloads/.`），會自動剔除並正確辨識。
-4. **快捷鍵輔助功能（Option + 點選）**：
-   - 按住鍵盤 `⌥ Option` 鍵點擊按鈕，可直接在終端機應用中開啟該目錄！
-   - 支援在 PopClip 外掛設定中選擇：`Terminal`（內建終端機）、`iTerm`、`Warp` 或 `Ghostty`。
-5. **友善錯誤回饋**：
-   - 若選取的路徑在硬碟中不存在，會透過 macOS 系統通知提示「找不到指定的路徑」，PopClip 則會顯示輕微晃動動畫。
+專為 macOS **PopClip** 設計的高效外掛。選取任何資料夾或檔案路徑文字後，一鍵直接在 Finder 中打開該資料夾並置頂顯示。
 
 ---
 
-## 📦 安裝方式
+## ✨ Features / 功能特色
 
-1. 進入此專案目錄：`popclip-open-in-finder`。
-2. 雙擊 **`OpenInFinder.popclipextz`**（或直接雙擊 `OpenInFinder.popclipext` 資料夾）。
-3. PopClip 會彈出安裝確認視窗，點擊「安裝」即可使用！
-
-> 💡 **提示**：若未出現圖示，請確認 PopClip 設定中的「動作（Actions）」分頁，確認「在 Finder 中打開」已勾選啟用。
+- **Direct Folder Access (直接進入資料夾)**:
+  - Select folder paths like `/Users/sunda/Documents/POPCLIP/`, click the icon, and Finder instantly opens and focuses the target directory.
+  - 選取資料夾路徑，點擊按鈕直接在 Finder 中開啟該目錄並置頂。
+- **File Reveal (檔案高亮定位)**:
+  - If a file path is selected (e.g. `/path/to/file.txt`), it reveals and selects the item in its enclosing folder (`open -R`).
+  - 若選取的是檔案，則在 Finder 中顯示並自動高亮選取該檔案。
+- **Robust Path Cleaning (強大路徑相容性)**:
+  - **Tilde expansion**: Supports `~`, `~/Documents`, etc.
+  - **Quote handling**: Cleans double quotes `"/path"`, single quotes `'~/path'`, backticks `` `path` ``, angle brackets `<path>`, or smart quotes `“/path”`.
+  - **`file://` URIs**: Automatically strips schema and URL-decodes percent encoding (spaces `%20`, unicode).
+  - **Shell-escaped spaces**: Handles `/My\ Folder/` correctly.
+  - **Trailing punctuation**: Strips trailing punctuation marks (e.g. `.` or `,`) if included by mistake in prose.
+- **Terminal Shortcut via ⌥ Option Key (快捷鍵終端機)**:
+  - Hold `⌥ Option` when clicking to open the folder in your preferred terminal emulator (`Terminal`, `iTerm`, `Warp`, or `Ghostty`).
+  - 按住 `⌥ Option` 鍵點選，直接在自訂終端機應用中開啟該資料夾。
+- **Helpful Notification (友善提示)**:
+  - If the path does not exist on disk, a native macOS notification is displayed.
 
 ---
 
-## ⚙️ 外掛設定選項
+## 🚀 Installation / 安裝方式
 
-在外掛設定面板中，可調整：
-- **Option 鍵輔助終端機**：
-  - `Terminal`（macOS 內建，預設值）
+### Method 1: Download Release Package / 下載套件安裝 (Recommended)
+
+1. Go to the [Releases](https://github.com/houtacheng/popclip-open-in-finder/releases) page.
+2. Download **`OpenInFinder.popclipextz`**.
+3. Double-click the file to install it directly into PopClip!
+
+### Method 2: Manual Installation / 手動安裝
+
+1. Clone or download this repository.
+2. Double-click the `OpenInFinder.popclipext` folder or run:
+   ```bash
+   open OpenInFinder.popclipextz
+   ```
+
+---
+
+## ⚙️ Options / 設定選項
+
+In PopClip's extension settings for **Open in Finder**, you can configure:
+
+- **Option Key Terminal (Option 鍵輔助終端機)**:
+  - `Terminal` (macOS default, 預設)
   - `iTerm`
   - `Warp`
   - `Ghostty`
 
 ---
 
-## 📁 專案檔案結構
+## 🧪 Testing / 單元測試
 
-```
-popclip-open-in-finder/
-├── LICENSE
-├── README.md
-├── popclip-directory.yaml
-├── OpenInFinder.popclipext/
-│   ├── Config.yaml          # PopClip 外掛設定與正規表達式
-│   ├── open_finder.sh       # 啟動腳本
-│   └── open_finder.py       # 核心路徑清理與執行邏輯
-├── OpenInFinder.popclipextz  # 已打包完成的外掛安裝包
-└── tests/
-    └── test_open_finder.py  # 單元測試
-```
-
----
-
-## 🧪 執行測試
-
-在終端機中執行：
+Run the unit tests:
 
 ```bash
 python3 tests/test_open_finder.py
@@ -73,6 +72,6 @@ python3 tests/test_open_finder.py
 
 ---
 
-## 📄 授權條款
+## 📄 License / 授權條款
 
-MIT License
+This project is licensed under the [MIT License](LICENSE).
