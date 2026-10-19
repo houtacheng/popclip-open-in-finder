@@ -6,7 +6,7 @@
 
 A macOS [PopClip](https://www.popclip.app/) extension to open highlighted folder paths directly in Finder, or reveal files, with a single click.
 
-專為 macOS **PopClip** 設計的高效外掛。選取任何資料夾或檔案路徑文字後，一鍵直接在 Finder 中打開該資料夾並置頂顯示。
+專為 macOS **PopClip** 設計的高效外掛。選取任何資料夾或檔案路徑文字後，一鍵直接在 Finder 中開啟該資料夾並置頂顯示。完全採用原生 JavaScript 開發，零外部依賴。
 
 ---
 
@@ -16,7 +16,7 @@ A macOS [PopClip](https://www.popclip.app/) extension to open highlighted folder
   - Select folder paths like `/Users/sunda/Documents/POPCLIP/`, click the icon, and Finder instantly opens and focuses the target directory.
   - 選取資料夾路徑，點擊按鈕直接在 Finder 中開啟該目錄並置頂。
 - **File Reveal (檔案高亮定位)**:
-  - If a file path is selected (e.g. `/path/to/file.txt`), it reveals and selects the item in its enclosing folder (`open -R`).
+  - If a file path is selected (e.g. `/path/to/file.txt`), it reveals and selects the item in its enclosing folder.
   - 若選取的是檔案，則在 Finder 中顯示並自動高亮選取該檔案。
 - **Robust Path Cleaning (強大路徑相容性)**:
   - **Tilde expansion**: Supports `~`, `~/Documents`, etc.
@@ -24,11 +24,11 @@ A macOS [PopClip](https://www.popclip.app/) extension to open highlighted folder
   - **`file://` URIs**: Automatically strips schema and URL-decodes percent encoding (spaces `%20`, unicode).
   - **Shell-escaped spaces**: Handles `/My\ Folder/` correctly.
   - **Trailing punctuation**: Strips trailing punctuation marks (e.g. `.` or `,`) if included by mistake in prose.
-- **Terminal Shortcut via ⌥ Option Key (快捷鍵終端機)**:
-  - Hold `⌥ Option` when clicking to open the folder in your preferred terminal emulator (`Terminal`, `iTerm`, `Warp`, or `Ghostty`).
-  - 按住 `⌥ Option` 鍵點選，直接在自訂終端機應用中開啟該資料夾。
-- **Helpful Notification (友善提示)**:
-  - If the path does not exist on disk, a native macOS notification is displayed.
+- **Copy Path Shortcut via ⌥ Option Key (快捷鍵複製路徑)**:
+  - Hold `⌥ Option` when clicking to copy the clean, normalized path to your clipboard.
+  - 按住 `⌥ Option` 鍵點選，直接複製清理並正規化後的純淨路徑至剪貼簿。
+- **Pure JavaScript & Zero Dependencies (純 JavaScript 無任何外部依賴)**:
+  - Built natively with PopClip's sandboxed JavaScript API. Fast, lightweight, and requires no external tools or runtime.
 
 ---
 
@@ -50,24 +50,12 @@ A macOS [PopClip](https://www.popclip.app/) extension to open highlighted folder
 
 ---
 
-## ⚙️ Options / 設定選項
-
-In PopClip's extension settings for **Open in Finder**, you can configure:
-
-- **Option Key Terminal (Option 鍵輔助終端機)**:
-  - `Terminal` (macOS default, 預設)
-  - `iTerm`
-  - `Warp`
-  - `Ghostty`
-
----
-
 ## 🧪 Testing / 單元測試
 
 Run the unit tests:
 
 ```bash
-python3 tests/test_open_finder.py
+node tests/test_open_finder.js
 ```
 
 ---
@@ -75,3 +63,10 @@ python3 tests/test_open_finder.py
 ## 📄 License / 授權條款
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Changelog
+
+- 2026-10-19: Re-implemented as pure JavaScript action for official PopClip Extensions Directory compliance and instant execution.
+- 2026-10-12: Initial release.

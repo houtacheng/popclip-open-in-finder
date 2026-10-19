@@ -5,17 +5,5 @@ icon: symbol:folder.fill
 description: Open the selected directory or reveal file in Finder directly.
 popclipVersion: 4000
 keywords: finder open path folder directory 目錄 資料夾 路徑
-shellScriptRationale: "Needs system-level execution via macOS open command and LaunchServices to directly open folders in Finder and pass target directories to terminal emulators."
 regex: '(?m)(?:^|(?<=[\s"''`<(\[:=]))["''`<]?(file://\S+|~(?=[\s"''`>)\];,:]|$)|~(/[^"''`\r\n\t]*)?|/[^\s/\*\?\+=\<\>\|][^"''`\r\n\t]*?)["''`>]?(?=$|[\r\n\t"''`>)\];,:])'
-shellScriptFile: open_finder.sh
-options:
-  - identifier: terminalApp
-    label: Option Key Terminal
-    type: multiple
-    values:
-      - Terminal
-      - iTerm
-      - Warp
-      - Ghostty
-    defaultValue: Terminal
-    description: Hold ⌥ Option when clicking to open the folder in this terminal emulator.
+javaScriptFile: open_finder.js
